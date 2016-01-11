@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+
+"""
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -16,6 +21,8 @@ class UserProfile(models.Model):
     youtube_links = models.TextField()
     additional_details = models.TextField()
     picture = models.ImageField(upload_to='uploads/')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.fullname
