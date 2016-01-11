@@ -6,8 +6,17 @@ __pycache__/
 # ignore virtualenv directory
 _venv/
 
+# ignore developement database file
+*.sqlite3
+
 # ignore spyder project files
 .spyderproject
 
 # ignore komodo project files
 *.komodoproject
+
+# donot ignore this file
+!.gitkeep
+
+# project specific ignores
+uploads/

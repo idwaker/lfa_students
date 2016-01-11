@@ -1,0 +1,45 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Leapfrog Academy {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'foundation/foundation.min.css' %}">
+        <link rel="stylesheet" href="{% static 'foundation/foundation-icons.css' %}">
+
+        <style>
+            .off-canvas-content {
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+
+
+        {% block main %}{% endblock %}
+        <script src="{% static 'jquery.min.js' %}"></script>
+        <script src="{% static 'foundation/foundation.min.js' %}"></script>
+        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+        <script>
+            $(document).foundation();
+
+            // hack to set off-canvas height to fullscreen
+            $(window).load(function() {
+                SetOffCanvasHeight();
+            }).resize(function() {
+                SetOffCanvasHeight();
+            });
+
+            function SetOffCanvasHeight() {
+                var height = $(window).height();
+                var contentHeight = $(".off-canvas-content").height();
+                if (contentHeight > height) { height = contentHeight; }
+
+                $(".off-canvas-wrapper").height(height);
+                $(".off-canvas-wrapper-inner").height(height);
+                $(".off-canvas").height(height);
+            }
+        </script>
+    </body>
+</html>
