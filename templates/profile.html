@@ -13,7 +13,7 @@
         <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
             <div class="row column">
                 <br>
-                <img class="thumbnail" src="http://placehold.it/550x550" style="border-radius: 50%">
+                <img class="thumbnail" src="{% if user.picture.url %}{{ user.picture.url }}{% else %}http://placehold.it/550x550{% endif %}" style="border-radius: 50%">
 
                 <h5>{{ user.fullname }}</h5>
 
