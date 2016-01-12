@@ -44,3 +44,13 @@ class UserProfile(models.Model):
 
     def youtube_links_aslist(self):
         return self.youtube_links.strip().split()
+
+    @property
+    def is_complete(self):
+        # FIXME: Hack
+        return self.fullname.strip() and self.address.strip() and \
+                self.key_skills.strip() and self.additional_skills.strip() and \
+                self.about.strip() and self.phone.strip() and \
+                self.linkedin_profile.strip() and self.github_projects.strip() and \
+                self.slideshare_links.strip() and self.youtube_links.strip() and \
+                self.additional_details.strip() and self.user.email

@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth import authenticate, login, logout
 
-from .models import User
+from .models import User, UserProfile
 from .forms import ProfileForm, LoginForm
 
 
@@ -57,4 +57,9 @@ def profile(request, username):
 
     return render(request, 'profile.html', {'userprofile': user.userprofile,
                                             'form': form})
+
+
+def profiles(request):
+    users = UserProfile.objects.all()
+    return render(request, 'profiles.html', dict(users=users))
 

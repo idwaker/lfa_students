@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+        <div class="off-canvas-content" data-off-canvas-content>
+            <!-- navigation -->
+            <nav class="top-bar">
+                <div class="top-bar-left">
+                    <ul class="dropdown menu" role="menubar">
+                      <li class="menu-text text-headline" role="menuitem">LeapFrog Academy</li>
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                  <ul class="menu">
+                    <li class="menu-text" tabindex="0">
+                        {% if request.user.is_authenticated %}
+                            Welcome, {{ request.user.username }}
+                            (<a href="/logout" tabindex="-1" style="display:inline">Logout</a>)
+                        {% else %}
+                            Welcome, Guest (<a href="/login" tabindex="-1" style="display:inline">Login</a>)
+                        {% endif %}
+                    </li>
+                  </ul>
+                </div>
+            </nav>
+            <!-- //navigation -->
+
+          {% if messages %}
+        {% for message in messages %}
+        <div class="{{ message.tags }} callout small" data-colsable>
+          <p>{{ message }}</p>
+          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+            <div class="row column medium-12" style="padding-top: 10px;">
+                <div class="row column medium-8">
+
+                  {% for profile in users %}
+                  <div class="medium-4 columns card end">
+        <h1 class="text-headline">{{ profile.fullname }}</h1>
+        <span class="text-caption">
+                          <img class="thumbnail" src="{% if profile.picture.url %}{{ profile.picture.url }}{% else %}http://placehold.it/120x120{% endif %}" style="border-radius: 50%">
+        </span>
+        <p class="text-body-1">
+          {{ profile.about }}
+        </p>
+        <p>
+          <a class="flat-button bottom-button" href="/profile/{{ profile.user.username }}">View Profile</a>
+
+        </p>
+      </div>
+                  {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
