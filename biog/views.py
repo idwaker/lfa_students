@@ -22,8 +22,13 @@ def userlogin(request):
         user = auth.authenticate(username=username, password=password)
 
         if user is not None:
-            if user.is_active:
+            if user.is_active and not user.is_staff and not user.is_superuser:
                 login(request, user)
+                if not UserProfile.objects.filter(user=user).exists():
+                    # XXX: HAck please change
+                    fullname = ' '.join([user.first_name, user.last_name])
+                    fullname = fullname if fullname.strip() else user.username
+                    UserProfile(user=user, fullname=fullname).save()
                 return HttpResponseRedirect('/profile/' + username)
             else:
                 messages.warning(request, "This account is not active",

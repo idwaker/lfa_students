@@ -54,3 +54,4 @@ class UserProfile(models.Model):
                 self.linkedin_profile.strip() and self.github_projects.strip() and \
                 self.slideshare_links.strip() and self.youtube_links.strip() and \
                 self.additional_details.strip() and self.user.email
+
