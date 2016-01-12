@@ -25,6 +25,7 @@
                   {{ form.fullname }}
                 {% endif %}
 
+                <label>Address</label>
                 <p>{{ userprofile.address }}</p>
                 {% if request.user.is_authenticated and request.user == userprofile.user %}
                   {{ form.address }}

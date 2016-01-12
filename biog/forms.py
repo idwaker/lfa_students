@@ -21,4 +21,15 @@ class ProfileForm(forms.ModelForm):
                   'about', 'linkedin_profile', 'github_projects',
                   'slideshare_links', 'youtube_links', 'additional_details',
                   'picture']
+        widgets = {
+            'address': forms.TextArea(attrs={'rows': 2, 'cols': 40}),
+            'key_skills': forms.TextArea(attrs={'rows': 2, 'cols': 40}),
+            'additional_skills': forms.TextArea(attrs={'rows': 2, 'cols': 40}),
+            'about': forms.TextArea(attrs={'rows': 2, 'cols': 40}),
+            'linkedin_profile': forms.TextArea(attrs={'rows': 1, 'cols': 40}),
+            'github_projects': forms.TextArea(attrs={'rows': 3, 'cols': 40}),
+            'slideshare_links': forms.TextArea(attrs={'rows': 3, 'cols': 40}),
+            'youtube_links': forms.TextArea(attrs={'rows': 3, 'cols': 40}),
+            'additional_details': forms.TextArea(attrs={'rows': 3, 'cols': 40}),
+        }
 
