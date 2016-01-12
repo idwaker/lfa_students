@@ -22,6 +22,8 @@ import biog.views
 
 urlpatterns = [
     url(r'^$', biog.views.home, name='home'),
+    url(r'^login/', biog.views.userlogin, name='login'),
+    url(r'^logout/', biog.views.userlogout, name='logout'),
     url(r'^profile/(?P<username>\w+)', biog.views.profile, name='profile'),
     url(r'^admin/', admin.site.urls),
 ]
