@@ -21,7 +21,7 @@ import biog.views
 
 
 urlpatterns = [
-    url(r'^$', biog.views.home, name='home'),
+    url(r'^$', biog.views.profiles, name='home'),
     url(r'^login/', biog.views.userlogin, name='login'),
     url(r'^logout/', biog.views.userlogout, name='logout'),
     url(r'^profile', biog.views.profiles, name='profiles'),
