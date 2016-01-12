@@ -46,7 +46,7 @@
                   <div class="medium-4 columns card end">
         <h1 class="text-headline">{{ profile.fullname }}</h1>
         <span class="text-caption">
-                          <img class="thumbnail" src="{% if profile.picture.url %}{{ profile.picture.url }}{% else %}http://placehold.it/120x120{% endif %}" style="border-radius: 50%">
+                          <img class="thumbnail" src="{% if profile.picture %}{{ profile.picture.url }}{% else %}http://placehold.it/120x120{% endif %}" style="border-radius: 50%">
         </span>
         <p class="text-body-1">
           {{ profile.about }}

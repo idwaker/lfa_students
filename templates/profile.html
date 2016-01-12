@@ -14,7 +14,7 @@
         <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
             <div class="row column">
                 <br>
-                <img class="thumbnail" src="{% if userprofile.picture.url %}{{ userprofile.picture.url }}{% else %}http://placehold.it/550x550{% endif %}" style="border-radius: 50%">
+                <img class="thumbnail" src="{% if userprofile.picture %}{{ userprofile.picture.url }}{% else %}http://placehold.it/550x550{% endif %}" style="border-radius: 50%">
 
                 {% if request.user.is_authenticated and request.user == userprofile.user %}
                   {{ form.picture }}
